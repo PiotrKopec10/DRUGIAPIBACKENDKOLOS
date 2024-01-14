@@ -1,0 +1,232 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Warehouse API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "Get products with filtering",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "type": "string",
+            "description": "Filter products by name"
+          },
+          {
+            "name": "minPrice",
+            "in": "query",
+            "type": "number",
+            "description": "Filter products by minimum price"
+          },
+          {
+            "name": "maxPrice",
+            "in": "query",
+            "type": "number",
+            "description": "Filter products by maximum price"
+          },
+          {
+            "name": "minQuantity",
+            "in": "query",
+            "type": "integer",
+            "description": "Filter products by minimum quantity"
+          },
+          {
+            "name": "maxQuantity",
+            "in": "query",
+            "type": "integer",
+            "description": "Filter products by maximum quantity"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "type": "string",
+            "description": "Sort products by field (e.g., 'name', 'price')"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved products",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "string" },
+                  "name": { "type": "string" },
+                  "price": { "type": "number" },
+                  "description": { "type": "string" },
+                  "quantity": { "type": "integer" },
+                  "unit": { "type": "string" }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new product",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Data of the new product",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the product"
+                },
+                "price": {
+                  "type": "number",
+                  "description": "Price of the product"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description of the product"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "description": "Quantity of the product"
+                },
+                "unit": {
+                  "type": "string",
+                  "description": "Unit of measurement (e.g., pieces, kg, liters)"
+                }
+              },
+              "required": ["name", "price", "description", "quantity", "unit"]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully added a new product"
+          },
+          "400": {
+            "description": "Invalid request, missing required fields or non-unique product name"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "put": {
+        "summary": "Edit an existing product",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID of the product to edit",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Data of the product to edit",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "New name of the product"
+                },
+                "price": {
+                  "type": "number",
+                  "description": "New price of the product"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "New description of the product"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "description": "New quantity of the product"
+                },
+                "unit": {
+                  "type": "string",
+                  "description": "New unit of measurement (e.g., pieces, kg, liters)"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully edited the product"
+          },
+          "400": {
+            "description": "Invalid request, missing required fields or non-unique product name"
+          },
+          "404": {
+            "description": "Product with the specified ID not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an existing product",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "ID of the product to delete",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted the product"
+          },
+          "404": {
+            "description": "Product with the specified ID not found"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/inventory-report": {
+      "get": {
+        "summary": "Generate inventory report",
+        "responses": {
+          "200": {
+            "description": "Successfully generated inventory report",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "totalProducts": { "type": "integer" },
+                "totalQuantity": { "type": "integer" },
+                "totalValue": { "type": "number" }
+              }
+            }
+          },
+          "404": {
+            "description": "No data available for generating the report"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    }
+  }
+}

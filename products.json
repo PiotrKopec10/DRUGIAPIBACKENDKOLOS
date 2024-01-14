@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Laptop",
+    "price": 1500,
+    "description": "Powerful laptop for work and entertainment.",
+    "quantity": 20,
+    "unit": "pieces"
+  },
+  {
+    "name": "Smartphone",
+    "price": 800,
+    "description": "Latest smartphone with advanced features.",
+    "quantity": 30,
+    "unit": "pieces"
+  },
+  {
+    "name": "Printer",
+    "price": 300,
+    "description": "High-quality printer for office use.",
+    "quantity": 10,
+    "unit": "pieces"
+  },
+  {
+    "name": "Desk Chair",
+    "price": 100,
+    "description": "Comfortable chair for your desk.",
+    "quantity": 15,
+    "unit": "pieces"
+  },
+  {
+    "name": "Coffee Maker",
+    "price": 50,
+    "description": "Compact coffee maker for your office.",
+    "quantity": 25,
+    "unit": "pieces"
+  },
+  {
+    "name": "External Hard Drive",
+    "price": 120,
+    "description": "1TB external hard drive for extra storage.",
+    "quantity": 18,
+    "unit": "pieces"
+  },
+  {
+    "name": "Headphones",
+    "price": 80,
+    "description": "High-quality headphones for audio enthusiasts.",
+    "quantity": 22,
+    "unit": "pieces"
+  },
+  {
+    "name": "Standing Desk",
+    "price": 300,
+    "description": "Adjustable standing desk for ergonomic work.",
+    "quantity": 8,
+    "unit": "pieces"
+  },
+  {
+    "name": "Webcam",
+    "price": 60,
+    "description": "HD webcam for video conferencing.",
+    "quantity": 12,
+    "unit": "pieces"
+  },
+  {
+    "name": "Wireless Mouse",
+    "price": 25,
+    "description": "Ergonomic wireless mouse for easy navigation.",
+    "quantity": 30,
+    "unit": "pieces"
+  },
+  {
+    "name": "Bluetooth Speaker",
+    "price": 70,
+    "description": "Portable Bluetooth speaker for music on the go.",
+    "quantity": 15,
+    "unit": "pieces"
+  },
+  {
+    "name": "Desk Lamp",
+    "price": 35,
+    "description": "LED desk lamp for bright and efficient lighting.",
+    "quantity": 20,
+    "unit": "pieces"
+  }
+]
